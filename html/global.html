@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Explainability of AI Model</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        header,
+        footer, header h1 {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #333;
+        }
+
+        section {
+            background: #fff;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        img {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 20px auto;
+        }
+
+        table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Global Explainability</h1>
+    </header>
+    <section>
+        <h2>AI Model - ResNet50</h2>
+        <p>The AI model trained to detect diabetic retinopathy is ResNet50, a type of deep convolutional neural network
+            (CNN) that excels at image classification. The model is trained using a supervised approach on a dataset of
+            retinal images that are labeled with the severity degree of diabetic retinopathy.</p>
+    </section>
+    <section>
+        <h2>Dataset Disclosure</h2>
+        <p>The dataset used to train the AI model comprises 2,929 retina imagery records, each with data points
+            including age, gender, and a diagnosis label.</p>
+        <p>The age of individuals ranges from 18 to 80 years, showcasing a wide rage of adult ages that is roughly 
+            uniformly scattered across the spectrum. </p>
+        <img src="../assets/age.png" alt="Age Distribution">
+        <p>The dataset exhibits a significant gender imbalance, with a majority of the entries being female (2,357),
+            compared to 572 male entries.</p>
+        <img src="../assets/gender.png" alt="Gender Distribution">
+        <p>Diagnosis labels are distributed across five categories: "No Disease," "Mild," "Moderate," "Severe," and
+            "Very Severe." The most common diagnosis is "No Disease," accounting for nearly half of the cases, followed
+            by "Moderate" and then "Mild" conditions. This distribution highlights the varying frequencies of conditions
+            within the studied population.</p>
+        <img src="../assets/label.png" alt="Diagnosis Label Distribution">
+    </section>
+    <section>
+        <h2>Model Evaluation</h2>
+        <p>The model overall achieves 88.5% accuracy on 720 unseen test data, so doctors can have confidence in the model's
+            diagnosis on new patient's retina imagery.</p>
+        <h3>Sub-group Evaluation</h3>
+        <table>
+            <tr>
+                <th>Gender</th>
+                <th>Accuracy</th>
+            </tr>
+            <tr>
+                <td>Male</td>
+                <td>89.0%</td>
+            </tr>
+            <tr>
+                <td>Female</td>
+                <td>88.3%</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>Age</th>
+                <th>Accuracy</th>
+            </tr>
+            <tr>
+                <td>&lt; 40</td>
+                <td>89.7%</td>
+            </tr>
+            <tr>
+                <td>40 ~ 60</td>
+                <td>90.8%</td>
+            </tr>
+            <tr>
+                <td>&gt; 60</td>
+                <td>84.8%</td>
+            </tr>
+        </table>
+    </section>
+    <footer>
+        <p>2024 © MLIP I4 - Jack Yu</p>
+    </footer>
+</body>
+
+</html>
